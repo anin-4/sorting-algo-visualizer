@@ -1,0 +1,1 @@
+this is a simple sorting algo visualizer made using html css and vanilla js.
