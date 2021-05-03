@@ -1,13 +1,14 @@
 
-let body=document.querySelector('.container');
-let input=[10,12,4,56,10,23,15,16,11,2,4,5,19,29,30,44,1,2,9,32,33,21,44,31];
-let inputnum= input.length;
-let startButton=document.querySelector('form');
+const body=document.querySelector('.container');
 
-function display(){
+const startButton=document.querySelector('.button');
+
+const randombutton= document.querySelector('.randomize');
+
+function display(input, inputnum){
     console.log(input)
     for(let num=0;num<inputnum;num++){
-        let height=input[num]*10;
+        let height=input[num]*7;
         let element=document.createElement('div');
         body.append(element);
         element.setAttribute("class","heights");
@@ -16,12 +17,10 @@ function display(){
     }
 }
 
-
-
-async function bubbleSort()
+async function bubbleSort(input, inputnum)
 {
    for (let i = 0; i < inputnum-1; i++){
-      display();
+      display(input,inputnum);
      
       for (let j = 0; j < inputnum-1; j++){
         if (input[j] > input[j+1])
@@ -34,7 +33,7 @@ async function bubbleSort()
     await new Promise((resolve) =>
         setTimeout(() => {
           resolve();
-        }, 300)
+        }, 200)
     );
     if(i!=inputnum-2){
         remove();
@@ -43,8 +42,6 @@ async function bubbleSort()
 }
 }
 
-
-
 function remove(){
     const elements= body.querySelectorAll('.heights');
    for(let ele of elements){
@@ -52,14 +49,21 @@ function remove(){
    }
 }
 
-
 async function main(e){
-   bubbleSort();
+    let input=[];
+    for(let i=0;i<100;i++){
+        let random=Math.floor(Math.random()*(99))+1;
+        input.push(random);
+    
+    }
+    let inputnum=input.length;
+    display(input,inputnum);
+   bubbleSort(input,inputnum);
    e.preventDefault();
    
 
 }
-// main();
+
 startButton.addEventListener('submit',main);
 
 
