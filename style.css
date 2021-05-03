@@ -1,0 +1,24 @@
+body{
+    height:100vh;
+    width:100vw;
+    display:flex;
+    justify-content:center;
+    margin:0;
+    padding:0;
+}
+
+.container{
+    height:100vh;
+    width:50%;
+    background-color: rgb(134, 209, 241);
+    display:flex;
+    flex-direction:row;
+}
+
+.heights{
+     /* height:50vh; */
+    width:100%;
+    /* height:30px; */
+    background-color: aliceblue;
+    margin:1px
+}
