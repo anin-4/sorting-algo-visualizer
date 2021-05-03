@@ -20,6 +20,7 @@ function display(input, inputnum){
 async function bubbleSort(input, inputnum)
 {
    for (let i = 0; i < inputnum-1; i++){
+      if(i!=0)
       display(input,inputnum);
      
       for (let j = 0; j < inputnum-1; j++){
@@ -49,22 +50,41 @@ function remove(){
    }
 }
 
-async function main(e){
-    let input=[];
-    for(let i=0;i<100;i++){
-        let random=Math.floor(Math.random()*(99))+1;
-        input.push(random);
-    
+class utilities{
+    constructor(input,inputnum){
+        this.input=[];
+        this.inputnum=0;
     }
-    let inputnum=input.length;
-    display(input,inputnum);
-   bubbleSort(input,inputnum);
-   e.preventDefault();
-   
 
+    randomizer(){
+        for(let i=0;i<100;i++){
+            let random=Math.floor(Math.random()*(99))+1;
+            this.input.push(random);
+        
+        }
+        this.inputnum=this.input.length;
+        remove();
+        display(this.input,this.inputnum);
+    }
+
+   runner(){
+        bubbleSort(this.input,this.inputnum);
+    }
 }
 
-startButton.addEventListener('submit',main);
+const utility=new utilities([],0);
+utility.randomizer();
+
+startButton.addEventListener('submit',(e)=>{
+    utility.runner();
+    e.preventDefault();
+});
+randombutton.addEventListener('submit',(e)=>{
+    utility.input=[];
+    utility.inputnum=0;
+    utility.randomizer();
+    e.preventDefault();
+});
 
 
 
