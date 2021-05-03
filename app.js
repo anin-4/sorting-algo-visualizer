@@ -2,7 +2,7 @@
 let body=document.querySelector('.container');
 let input=[10,12,4,56,10,23,15,16,11,2,4,5,19,29,30,44,1,2,9,32,33,21,44,31];
 let inputnum= input.length;
-
+let startButton=document.querySelector('form');
 
 function display(){
     console.log(input)
@@ -17,9 +17,8 @@ function display(){
 }
 
 
-const mypromise= new Promise ((resolve) =>{
-    bubbleSort();
-    async function bubbleSort()
+
+async function bubbleSort()
 {
    for (let i = 0; i < inputnum-1; i++){
       display();
@@ -37,11 +36,14 @@ const mypromise= new Promise ((resolve) =>{
           resolve();
         }, 300)
     );
-    remove();
+    if(i!=inputnum-2){
+        remove();
+    }
+   
 }
-resolve(); 
+}
 
-}});
+
 
 function remove(){
     const elements= body.querySelectorAll('.heights');
@@ -51,14 +53,14 @@ function remove(){
 }
 
 
-async function main(){
-   await mypromise;
-   display();
-
-
-
+async function main(e){
+   bubbleSort();
+   e.preventDefault();
+   
 
 }
-main();
+// main();
+startButton.addEventListener('submit',main);
+
 
 

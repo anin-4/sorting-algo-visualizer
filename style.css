@@ -2,7 +2,9 @@ body{
     height:100vh;
     width:100vw;
     display:flex;
-    justify-content:center;
+    flex-direction:column;
+    /* justify-content:center; */
+    align-items: center;
     margin:0;
     padding:0;
 }
@@ -10,7 +12,6 @@ body{
 .container{
     height:100vh;
     width:50%;
-    background-color: rgb(134, 209, 241);
     display:flex;
     flex-direction:row;
 }
@@ -19,6 +20,6 @@ body{
      /* height:50vh; */
     width:100%;
     /* height:30px; */
-    background-color: aliceblue;
+    background-color:lightblue;
     margin:1px
 }
