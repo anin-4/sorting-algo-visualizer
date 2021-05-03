@@ -57,7 +57,7 @@ class utilities{
     }
 
     randomizer(){
-        for(let i=0;i<100;i++){
+        for(let i=0;i<150;i++){
             let random=Math.floor(Math.random()*(99))+1;
             this.input.push(random);
         
