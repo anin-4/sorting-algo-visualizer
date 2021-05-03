@@ -17,7 +17,9 @@ function display(){
 }
 
 
-async function bubbleSort()
+const mypromise= new Promise ((resolve) =>{
+    bubbleSort();
+    async function bubbleSort()
 {
    for (let i = 0; i < inputnum-1; i++){
       display();
@@ -36,8 +38,10 @@ async function bubbleSort()
         }, 300)
     );
     remove();
-} 
 }
+resolve(); 
+
+}});
 
 function remove(){
     const elements= body.querySelectorAll('.heights');
@@ -47,12 +51,9 @@ function remove(){
 }
 
 
-function main(){
-  
-    // display();
-    bubbleSort();
-    setTimeout(display,300*inputnum);
-   
+async function main(){
+   await mypromise;
+   display();
 
 
 
