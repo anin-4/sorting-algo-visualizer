@@ -2,11 +2,15 @@ const startButton=document.querySelector('.button');
 
 const randombutton= document.querySelector('.randomize');
 
+const quicksortButton=document.querySelector('.Quicksort');
+
 import {bubbleSort} from './bubblesort.js';
 
 import {remove} from './remove.js';
 
 import{display} from './display.js';
+
+import{Quicksort} from './quicksort.js';
 
 class utilities{
     constructor(input,inputnum){
@@ -28,6 +32,9 @@ class utilities{
    bubblesort(){
         bubbleSort(this.input,this.inputnum);
     }
+    Quicksort(){
+        Quicksort(this.input,0,this.inputnum-1);
+    }
 }
 
 const utility=new utilities([],0);
@@ -35,6 +42,10 @@ utility.randomizer();
 
 startButton.addEventListener('submit',(e)=>{
     utility.bubblesort();
+    e.preventDefault();
+});
+quicksortButton.addEventListener('submit',(e)=>{
+    utility.Quicksort();
     e.preventDefault();
 });
 randombutton.addEventListener('submit',(e)=>{
