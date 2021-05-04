@@ -67,7 +67,7 @@ class utilities{
         display(this.input,this.inputnum);
     }
 
-   runner(){
+   bubblesort(){
         bubbleSort(this.input,this.inputnum);
     }
 }
@@ -76,7 +76,7 @@ const utility=new utilities([],0);
 utility.randomizer();
 
 startButton.addEventListener('submit',(e)=>{
-    utility.runner();
+    utility.bubblesort();
     e.preventDefault();
 });
 randombutton.addEventListener('submit',(e)=>{
